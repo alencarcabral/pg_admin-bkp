@@ -1,0 +1,7 @@
+backups/*
+!backups/.keep
+data/sessions/*
+data/pgadmin4.db
+app/__pycache__/backup_bancos.cpython-312.pyc
+app/bancos.yaml
+bancos copy

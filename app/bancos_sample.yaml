@@ -1,0 +1,32 @@
+# Configurações gerais de backup
+general:
+    path_backup: /bancos/backups
+    path_log: /bancos/backups/execucao_backups.log
+    # date_format: "%Y-%m-%d_%H%M%S" # (Opcional, formato padrão de data e hora)
+
+# Lista de bancos de dados.
+# Cada chave abaixo (ex: banco_01, banco_02) define o nome do DATABASE GROUP.
+# O backup é salvo na pasta do grupo: <path_backup>/<database_group>/
+# Formato do arquivo gerado: <data_e_hora>_<POSTGRES_DB>.dump (ex: 2026-10-06_101850_test_db.dump)
+# Opcionalmente, pode-se especificar 'DATABASE_GROUP: <nome_customizado>' dentro do bloco do banco.
+databases:
+    banco_01:
+        POSTGRES_HOSTNAME: [hostname_ou_ip_do_servidor]
+        POSTGRES_USER: db_user
+        POSTGRES_PASSWORD: [PASSWORD]
+        POSTGRES_DB: db_name
+        POSTGRES_PORT: 5432
+        # --no-password 
+        Extra_args: "--format=c --blobs --no-owner --no-privileges"
+        Verbose: "--verbose"
+
+    banco_02:
+        POSTGRES_HOSTNAME: [hostname_ou_ip_do_servidor]
+        POSTGRES_USER: db_user
+        POSTGRES_PASSWORD: [PASSWORD]
+        POSTGRES_DB: db_name
+        POSTGRES_PORT: 5432
+        # --no-password 
+        Extra_args: "--format=c --blobs --no-owner --no-privileges"
+        Verbose: "--verbose"
+
